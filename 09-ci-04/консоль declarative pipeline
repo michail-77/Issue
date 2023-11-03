@@ -1,0 +1,113 @@
+Вывод на консоль
+Started by user admin
+Checking out git https://github.com/michail-77/vector-role.git into /var/lib/jenkins/workspace/Declarative Pipeline@script/a45df1ec179f71e8c474ba1bf4abf843bdc3522009c3c0a0eb7c43236dcdda5d to read Jenkinsfile
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential 26fdc1b8-3068-45bd-80a1-e663e5df084a
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/Declarative Pipeline@script/a45df1ec179f71e8c474ba1bf4abf843bdc3522009c3c0a0eb7c43236dcdda5d/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/michail-77/vector-role.git # timeout=10
+Fetching upstream changes from https://github.com/michail-77/vector-role.git
+ > git --version # timeout=10
+ > git --version # 'git version 1.8.3.1'
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/michail-77/vector-role.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 9f28b025fb2346e9de813ddc7bdfbcf0955fcee1 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 9f28b025fb2346e9de813ddc7bdfbcf0955fcee1 # timeout=10
+Commit message: "Create Jenkinsfile"
+ > git rev-list --no-walk 9f28b025fb2346e9de813ddc7bdfbcf0955fcee1 # timeout=10
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on agent in /opt/jenkins_agent/workspace/Declarative Pipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential 26fdc1b8-3068-45bd-80a1-e663e5df084a
+Fetching changes from the remote Git repository
+Checking out Revision 9f28b025fb2346e9de813ddc7bdfbcf0955fcee1 (refs/remotes/origin/main)
+Commit message: "Create Jenkinsfile"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Get role)
+[Pipeline] dir
+Running in /opt/jenkins_agent/workspace/Declarative Pipeline/vector-role
+[Pipeline] {
+[Pipeline] git
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+Fetching changes from the remote Git repository
+ > git rev-parse --resolve-git-dir /opt/jenkins_agent/workspace/Declarative Pipeline/.git # timeout=10
+ > git config remote.origin.url https://github.com/michail-77/vector-role.git # timeout=10
+Fetching upstream changes from https://github.com/michail-77/vector-role.git
+ > git --version # timeout=10
+ > git --version # 'git version 1.8.3.1'
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/michail-77/vector-role.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 9f28b025fb2346e9de813ddc7bdfbcf0955fcee1 # timeout=10
+Checking out Revision 9f28b025fb2346e9de813ddc7bdfbcf0955fcee1 (refs/remotes/origin/main)
+Commit message: "Create Jenkinsfile"
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Molecule test)
+[Pipeline] dir
+Running in /opt/jenkins_agent/workspace/Declarative Pipeline/vector-role
+ > git rev-parse --resolve-git-dir /opt/jenkins_agent/workspace/Declarative Pipeline/vector-role/.git # timeout=10
+ > git config remote.origin.url https://github.com/michail-77/vector-role.git # timeout=10
+Fetching upstream changes from https://github.com/michail-77/vector-role.git
+ > git --version # timeout=10
+ > git --version # 'git version 1.8.3.1'
+ > git fetch --tags --progress https://github.com/michail-77/vector-role.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 9f28b025fb2346e9de813ddc7bdfbcf0955fcee1 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D main # timeout=10
+ > git checkout -b main 9f28b025fb2346e9de813ddc7bdfbcf0955fcee1 # timeout=10
+[Pipeline] {
+[Pipeline] sh
++ molecule test
+Failed to load driver entry point Traceback (most recent call last):
+  File "/home/jenkins/.local/lib/python3.6/site-packages/molecule/api.py", line 45, in drivers
+    pm.load_setuptools_entrypoints("molecule.driver")
+  File "/home/jenkins/.local/lib/python3.6/site-packages/pluggy/manager.py", line 299, in load_setuptools_entrypoints
+    plugin = ep.load()
+  File "/home/jenkins/.local/lib/python3.6/site-packages/importlib_metadata/__init__.py", line 194, in load
+    module = import_module(match.group('module'))
+  File "/usr/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/jenkins/.local/lib/python3.6/site-packages/molecule_podman/driver.py", line 32, in <module>
+    from molecule.api import Driver, MoleculeRuntimeWarning
+ImportError: cannot import name 'MoleculeRuntimeWarning'
+
+CRITICAL 'molecule/default/molecule.yml' glob failed.  Exiting.
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 1
+Finished: FAILURE
