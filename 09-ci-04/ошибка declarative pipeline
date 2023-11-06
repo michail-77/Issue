@@ -1,0 +1,53 @@
+Вывод на консоль
+Started by user admin
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on agent in /opt/jenkins_agent/workspace/declarative pipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Get role)
+[Pipeline] dir
+Running in /opt/jenkins_agent/workspace/declarative pipeline/vector-role
+[Pipeline] {
+[Pipeline] git
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential 26fdc1b8-3068-45bd-80a1-e663e5df084a
+Fetching changes from the remote Git repository
+Checking out Revision 29fccdf7eb0b4e207a08f59c74dee26a72a18a97 (refs/remotes/origin/main)
+Commit message: "1"
+ > git rev-parse --resolve-git-dir /opt/jenkins_agent/workspace/declarative pipeline/vector-role/.git # timeout=10
+ > git config remote.origin.url https://github.com/michail-77/vector-role.git # timeout=10
+Fetching upstream changes from https://github.com/michail-77/vector-role.git
+ > git --version # timeout=10
+ > git --version # 'git version 1.8.3.1'
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/michail-77/vector-role.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 29fccdf7eb0b4e207a08f59c74dee26a72a18a97 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D main # timeout=10
+ > git checkout -b main 29fccdf7eb0b4e207a08f59c74dee26a72a18a97 # timeout=10
+ > git rev-list --no-walk 29fccdf7eb0b4e207a08f59c74dee26a72a18a97 # timeout=10
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Molecule test)
+[Pipeline] dir
+Running in /opt/jenkins_agent/workspace/declarative pipeline/vector-role
+[Pipeline] {
+[Pipeline] sh
++ molecule test
+/opt/jenkins_agent/workspace/declarative pipeline/vector-role@tmp/durable-8333dcb9/script.sh: line 1: molecule: command not found
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 127
+Finished: FAILURE
