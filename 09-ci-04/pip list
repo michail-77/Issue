@@ -64,3 +64,15 @@ molecule 3.6.1 using python 3.6
     ansible:2.10.17
     delegated:3.6.1 from molecule
     docker:1.1.0 from molecule_docker requiring collections: community.docker>=1.9.1
+
+[user@jenkins-agent ~]$ molecule drivers
+/usr/local/lib/python3.6/site-packages/ansible/parsing/vault/__init__.py:44: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.6.
+  from cryptography.exceptions import InvalidSignature
+/home/user/.local/lib/python3.6/site-packages/requests/__init__.py:104: RequestsDependencyWarning: urllib3 (1.26.18) or chardet (5.0.0)/charset_normalizer (2.0.12) doesn't match a supported version!
+  RequestsDependencyWarning)
+
+
+╶──────────────────────────────────────────────────────────────────────────────────────────────────╴
+  delegated
+  docker
+
